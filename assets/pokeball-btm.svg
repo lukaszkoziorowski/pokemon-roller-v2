@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="358px" height="223px" viewBox="0 0 358 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>03A70F0F-A9DE-41B9-BA11-D8E48359C3D6@1.00x</title>
+    <defs>
+        <polygon id="path-1" points="0 0 150.344727 0 180.404297 0 209.538086 0 358 0 358 203 0 203"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3" transform="translate(-24.000000, -535.000000)">
+            <g id="Group-11" transform="translate(24.000000, 147.000000)">
+                <g id="Group-9" transform="translate(0.000000, 388.000000)">
+                    <g id="Group-2" transform="translate(0.000000, 20.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g mask="url(#mask-2)">
+                            <g transform="translate(25.000000, -147.000000)">
+                                <circle id="Oval" stroke="none" fill="#FFFFFF" fill-rule="evenodd" cx="155" cy="155" r="155"></circle>
+                                <circle id="Oval" stroke="none" fill="#E6E6E6" fill-rule="evenodd" cx="155" cy="147" r="147"></circle>
+                                <circle id="Oval" stroke="none" fill="#FFFFFF" fill-rule="evenodd" cx="147" cy="143" r="139"></circle>
+                                <path d="M293,146.222715 C293,69.3321326 230.767085,7 153.999886,7 C77.232688,7 15,69.3321326 15,146.222715 C15,146.222715 293.272631,147.971606 293,146.222715 Z" id="Oval" stroke="none" fill="#FF243B" fill-rule="evenodd"></path>
+                                <circle id="Oval" stroke="#1A1A1A" stroke-width="17" fill="none" cx="155" cy="155" r="146.5"></circle>
+                                <rect id="Rectangle" stroke="none" fill="#1A1A1A" fill-rule="evenodd" x="7" y="146" width="290" height="19"></rect>
+                                <circle id="Oval" stroke="none" fill="#1A1A1A" fill-rule="evenodd" cx="155" cy="159" r="48"></circle>
+                            </g>
+                        </g>
+                    </g>
+                    <circle id="Oval" fill="#FFFFFF" cx="180" cy="32" r="32"></circle>
+                    <circle id="Oval" fill="#E6E6E6" cx="180" cy="32" r="24"></circle>
+                    <circle id="Oval" fill="#FFFFFF" cx="180" cy="32" r="12"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
