@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Nunito", sans-serif;
+}
+
+.logo {
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  &__image {
+    height: 80px;
+    margin-top: 40px;
+  }
+}
+
+.pokeball {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  &__container {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+  }
+  &__image {
+    height: 310px;
+    width: 310px;
+    margin-top: 20px;
+  }
+  &__click {
+    position: relative;
+    width: 182px;
+    height: 45px;
+    background: rgb(242, 242, 247);
+    border-radius: 8px;
+    text-align: center;
+    line-height: 45px;
+    animation: pulse 1s infinite alternate linear;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      width: 11px;
+      height: 11px;
+      background-color: rgb(242, 242, 247);
+      transform: rotate(-45deg) translateX(-50%);
+    }
+    &-text {
+      width: 74px;
+      height: 27px;
+      color: rgb(39, 39, 39);
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0px;
+    }
+  }
+}
+
+.footer {
+  height: 15%;
+  position: relative;
+  &__btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(232, 229, 229);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    &-image {
+      height: 24px;
+      width: 24px;
+    }
+    &-amount {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background: rgb(255, 96, 102);
+      border-radius: 50%;
+      &-text {
+        width: 11px;
+        height: 23px;
+        color: rgb(255, 255, 255);
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 0px;
+      }
+    }
+  }
+}
