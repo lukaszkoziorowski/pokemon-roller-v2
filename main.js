@@ -61,7 +61,8 @@ const showPokeInfo = (poke) => {
       <span class="info__category">${poke.types[0].type.name}</span>
     </div>
     <ul class="info__list">
-      <li class="info__list-item info__list-item--active">About</li>
+      <li class="info__list-item info__list-item--active info__list-item--about">About</li>
+      <li class="info__list-item info__list-item info__list-item--moves">Moves</li>
     </ul>
     <div class="info__desc"></div>
     <div class="info__buttons">
@@ -71,13 +72,46 @@ const showPokeInfo = (poke) => {
   </div>`;
 
   document.body.appendChild(modalFirst);
+  const modalList = [...document.querySelectorAll(".info__list-item")];
+  const aboutList = document.querySelector(".info__list-item--about");
+  const movesList = document.querySelector(".info__list-item--moves");
+  aboutList.classList.add("info__list-item--active");
   document.querySelector(".info__desc").innerHTML = ` <ul class="info__stats">
-  <li>HP: ${poke.stats[0]["base_stat"]}</li>
-  <li>ATK: ${poke.stats[1]["base_stat"]}</li>
-  <li>DEF: ${poke.stats[2]["base_stat"]}</li>
-  <li>SPD: ${poke.stats[5]["base_stat"]}</li>
-</ul>
-`;
+    <li>HP: ${poke.stats[0]["base_stat"]}</li>
+    <li>ATK: ${poke.stats[1]["base_stat"]}</li>
+    <li>DEF: ${poke.stats[2]["base_stat"]}</li>
+    <li>SPD: ${poke.stats[5]["base_stat"]}</li>
+  </ul>
+  `;
+
+  modalList.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      modalList.forEach((i) => i.classList.remove("info__list-item--active"));
+      e.target.classList.add("info__list-item--active");
+      if (movesList.classList.contains("info__list-item--active")) {
+        document.querySelector(
+          ".info__desc"
+        ).innerHTML = `<ul class="info__stats">
+        <li>${poke.moves[0].move.name}</li>
+        <li>${poke.moves[1].move.name}</li>
+        <li>${poke.moves[2].move.name}</li>
+        <li>${poke.moves[3].move.name}</li>
+        <li>${poke.moves[4].move.name}</li>
+        </ul>`;
+      } else {
+        document.querySelector(
+          ".info__desc"
+        ).innerHTML = ` <ul class="info__stats">
+      <li>HP: ${poke.stats[0]["base_stat"]}</li>
+      <li>ATK: ${poke.stats[1]["base_stat"]}</li>
+      <li>DEF: ${poke.stats[2]["base_stat"]}</li>
+      <li>SPD: ${poke.stats[5]["base_stat"]}</li>
+    </ul>
+      `;
+      }
+    });
+  });
+
   const colorThief = new ColorThief();
   const img = document.querySelector(".pokeball__new-pokemon-img");
   const pokeColor = colorThief.getColor(img);

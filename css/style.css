@@ -477,12 +477,13 @@ body {
   font-weight: normal;
   opacity: 0.5;
   padding: 5px 0;
-  border-bottom: 1px solid #272727;
+  text-decoration: none;
 }
 
 .info__list-item--active {
   opacity: 1;
   font-weight: bold;
+  border-bottom: 1px solid #272727;
 }
 
 .info__desc {
@@ -589,6 +590,10 @@ body {
   }
   .info__name {
     font-size: 30px;
+  }
+  .info__btn {
+    height: 46px;
+    width: 134px;
   }
 }
 
