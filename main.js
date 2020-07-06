@@ -31,7 +31,7 @@ const createPokeParts = () => {
   setTimeout(() => {
     pokeTop.remove();
     pokeBot.remove();
-  }, 2000);
+  }, 2500);
 };
 
 const rollPoke = () => {
@@ -41,7 +41,6 @@ const rollPoke = () => {
   } else {
     return;
   }
-
   document.querySelector(".pokeball__image").style.animation = "spin 3s both";
   setTimeout(() => {
     createPokeParts();

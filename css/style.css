@@ -43,67 +43,67 @@
 
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(1440deg);
-            transform: rotate(1440deg);
+    -webkit-transform: translate(-50%, -50%) rotate(1440deg);
+            transform: translate(-50%, -50%) rotate(1440deg);
   }
 }
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(1440deg);
-            transform: rotate(1440deg);
+    -webkit-transform: translate(-50%, -50%) rotate(1440deg);
+            transform: translate(-50%, -50%) rotate(1440deg);
   }
 }
 
 @-webkit-keyframes slideTop {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translate(-50%, -85%) rotate(0deg);
+            transform: translate(-50%, -85%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translate(-50%, -100%) rotate(0deg);
+            transform: translate(-50%, -100%) rotate(0deg);
   }
 }
 
 @keyframes slideTop {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translate(-50%, -85%) rotate(0deg);
+            transform: translate(-50%, -85%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translate(-50%, -100%) rotate(0deg);
+            transform: translate(-50%, -100%) rotate(0deg);
   }
 }
 
 @-webkit-keyframes slideBot {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translate(-50%, -13%) rotate(0deg);
+            transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translateY(80px);
-            transform: translateY(80px);
+    -webkit-transform: translate(-50%, 30%) rotate(0deg);
+            transform: translate(-50%, 30%) rotate(0deg);
   }
 }
 
 @keyframes slideBot {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translate(-50%, -13%) rotate(0deg);
+            transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translateY(80px);
-            transform: translateY(80px);
+    -webkit-transform: translate(-50%, 30%) rotate(0deg);
+            transform: translate(-50%, 30%) rotate(0deg);
   }
 }
 
@@ -126,29 +126,6 @@
   100% {
     -webkit-transform: scale(1.5) translate(-50%, -80%);
             transform: scale(1.5) translate(-50%, -80%);
-  }
-}
-
-@media (min-width: 410px) {
-  @-webkit-keyframes slideBot {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(100px);
-              transform: translateY(100px);
-    }
-  }
-  @keyframes slideBot {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(100px);
-              transform: translateY(100px);
-    }
   }
 }
 
@@ -215,35 +192,28 @@ body {
 }
 
 .pokeball {
-  width: 100vw;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 65vh;
-  cursor: pointer;
-}
-
-.pokeball__form {
-  width: 100%;
-  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100vw;
+  position: relative;
+  height: 55vh;
+  cursor: pointer;
+}
+
+.pokeball__form {
+  height: 80%;
 }
 
 .pokeball__image {
-  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg);
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
@@ -254,19 +224,21 @@ body {
 }
 
 .pokeball__part {
-  right: 1px;
-  width: 100%;
   position: absolute;
+  left: 50%;
+  top: 50%;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
 
 .pokeball__part--poke-top {
-  top: -14px;
+  -webkit-transform: translate(-50%, -85%);
+          transform: translate(-50%, -85%);
 }
 
 .pokeball__part--poke-bot {
-  top: 133px;
+  -webkit-transform: translate(-50%, -13%);
+          transform: translate(-50%, -13%);
 }
 
 .pokeball__new-pokemon {
@@ -274,7 +246,7 @@ body {
   -webkit-transform-origin: 0;
           transform-origin: 0;
   z-index: 100;
-  top: 33%;
+  top: 40%;
   z-index: -1;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
@@ -287,8 +259,8 @@ body {
 }
 
 .pokeball__click {
-  margin-top: 20px;
-  position: relative;
+  position: absolute;
+  bottom: -70px;
   width: 182px;
   height: 45px;
   background: #f2f2f7;
@@ -326,12 +298,13 @@ body {
 
 .footer {
   width: 100vw;
-  height: 15vh;
+  height: 25vh;
   position: relative;
 }
 
 .footer__btn {
   z-index: 20;
+  cursor: pointer;
   position: absolute;
   bottom: 24px;
   right: 24px;
@@ -533,11 +506,23 @@ body {
   text-align: center;
 }
 
+.info__btn:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
 .info__btn--add {
   background: #ff6066;
   color: white;
   -webkit-box-shadow: 0px 2px 4px 0px rgba(255, 96, 102, 0.3);
           box-shadow: 0px 2px 4px 0px rgba(255, 96, 102, 0.3);
+}
+
+.info__btn--add:active {
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(255, 96, 102, 0.3);
+          box-shadow: 0px 1px 2px 0px rgba(255, 96, 102, 0.3);
 }
 
 @media (min-width: 359px) {
@@ -564,14 +549,8 @@ body {
   .logo__image {
     height: 80px;
   }
-  .pokeball__part--poke-top {
-    top: -18px;
-  }
-  .pokeball__part--poke-bot {
-    top: 148px;
-  }
   .pokeball__click {
-    margin-top: 30px;
+    bottom: -50px;
   }
   .footer__btn {
     height: 64px;
@@ -588,6 +567,10 @@ body {
   .footer__btn-amount-text {
     font-size: 17px;
   }
+  .info__close-btn {
+    height: 26px;
+    width: 26px;
+  }
   .info__name {
     font-size: 30px;
   }
@@ -597,18 +580,55 @@ body {
   }
 }
 
+@media (min-width: 374px) and (min-height: 811px) {
+  @-webkit-keyframes imgSize {
+    0% {
+      -webkit-transform: scale(1) translate(-50%, 0);
+              transform: scale(1) translate(-50%, 0);
+    }
+    100% {
+      -webkit-transform: scale(1.9) translate(-50%, -90%);
+              transform: scale(1.9) translate(-50%, -90%);
+    }
+  }
+  @keyframes imgSize {
+    0% {
+      -webkit-transform: scale(1) translate(-50%, 0);
+              transform: scale(1) translate(-50%, 0);
+    }
+    100% {
+      -webkit-transform: scale(1.9) translate(-50%, -90%);
+              transform: scale(1.9) translate(-50%, -90%);
+    }
+  }
+}
+
 @media (min-width: 410px) {
-  .pokeball__part {
-    opacity: 0.4;
+  @-webkit-keyframes imgSize {
+    0% {
+      -webkit-transform: scale(1) translate(-50%, 0);
+              transform: scale(1) translate(-50%, 0);
+    }
+    100% {
+      -webkit-transform: scale(1.9) translate(-50%, -80%);
+              transform: scale(1.9) translate(-50%, -80%);
+    }
   }
-  .pokeball__part--poke-top {
-    top: -33px;
-  }
-  .pokeball__part--poke-bot {
-    top: 154px;
+  @keyframes imgSize {
+    0% {
+      -webkit-transform: scale(1) translate(-50%, 0);
+              transform: scale(1) translate(-50%, 0);
+    }
+    100% {
+      -webkit-transform: scale(1.9) translate(-50%, -80%);
+              transform: scale(1.9) translate(-50%, -80%);
+    }
   }
   .pokeball__new-pokemon {
     top: 38%;
+  }
+  .pokeball__click {
+    bottom: -20px;
   }
 }
 /*# sourceMappingURL=style.css.map */

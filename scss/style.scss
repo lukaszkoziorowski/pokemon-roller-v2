@@ -23,28 +23,28 @@
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    transform: rotate(1440deg);
+    transform: translate(-50%, -50%) rotate(1440deg);
   }
 }
 
 @keyframes slideTop {
   0% {
-    transform: translateY(0);
+    transform: translate(-50%, -85%) rotate(0deg);
   }
   100% {
-    transform: translateY(-50px);
+    transform: translate(-50%, -100%) rotate(0deg);
   }
 }
 
 @keyframes slideBot {
   0% {
-    transform: translateY(0);
+    transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    transform: translateY(80px);
+    transform: translate(-50%, 30%) rotate(0deg);
   }
 }
 
@@ -54,17 +54,6 @@
   }
   100% {
     transform: scale(1.5) translate(-50%, -80%);
-  }
-}
-
-@media (min-width: 410px) {
-  @keyframes slideBot {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(100px);
-    }
   }
 }
 
@@ -108,23 +97,21 @@ body {
 }
 
 .pokeball {
+  display: flex;
+  justify-content: center;
   width: 100vw;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 65vh;
+  height: 55vh;
   cursor: pointer;
 
   &__form {
-    width: 100%;
     height: 80%;
-    display: flex;
-    justify-content: center;
   }
   &__image {
-    // opacity: 0.4;
-    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
     transition: 0.3s all;
     &--spinning {
       animation: spin 3s both;
@@ -132,23 +119,23 @@ body {
   }
 
   &__part {
-    right: 1px;
-    width: 100%;
     // opacity: 0.4;
     position: absolute;
+    left: 50%;
+    top: 50%;
     transition: 0.3s all;
     &--poke-top {
-      top: -14px;
+      transform: translate(-50%, -85%);
     }
     &--poke-bot {
-      top: 133px;
+      transform: translate(-50%, -13%);
     }
   }
   &__new-pokemon {
     position: absolute;
     transform-origin: 0;
     z-index: 100;
-    top: 33%;
+    top: 40%;
     z-index: -1;
     left: 50%;
     transform: translate(-50%, 0);
@@ -158,8 +145,8 @@ body {
     }
   }
   &__click {
-    margin-top: 20px;
-    position: relative;
+    position: absolute;
+    bottom: -70px;
     width: 182px;
     height: 45px;
     background: rgb(242, 242, 247);
@@ -194,10 +181,11 @@ body {
 
 .footer {
   width: 100vw;
-  height: 15vh;
+  height: 25vh;
   position: relative;
   &__btn {
     z-index: 20;
+    cursor: pointer;
     position: absolute;
     bottom: 24px;
     right: 24px;
@@ -351,10 +339,17 @@ body {
     font-size: 17px;
     font-weight: bold;
     text-align: center;
+    &:active {
+      transform: translateY(2px);
+      box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+    }
     &--add {
       background: rgb(255, 96, 102);
       color: white;
       box-shadow: 0px 2px 4px 0px rgba(255, 96, 102, 0.3);
+      &:active {
+        box-shadow: 0px 1px 2px 0px rgba(255, 96, 102, 0.3);
+      }
     }
   }
 }
@@ -374,17 +369,8 @@ body {
     }
   }
   .pokeball {
-    &__part {
-      // right: 1px;
-      &--poke-top {
-        top: -18px;
-      }
-      &--poke-bot {
-        top: 148px;
-      }
-    }
     &__click {
-      margin-top: 30px;
+      bottom: -50px;
     }
   }
   .footer__btn {
@@ -403,6 +389,10 @@ body {
     }
   }
   .info {
+    &__close-btn {
+      height: 26px;
+      width: 26px;
+    }
     &__name {
       font-size: 30px;
     }
@@ -413,19 +403,32 @@ body {
   }
 }
 
-@media (min-width: 410px) {
-  .pokeball {
-    &__part {
-      opacity: 0.4;
-      &--poke-top {
-        top: -33px;
-      }
-      &--poke-bot {
-        top: 154px;
-      }
+@media (min-width: 374px) and (min-height: 811px) {
+  @keyframes imgSize {
+    0% {
+      transform: scale(1) translate(-50%, 0);
     }
+    100% {
+      transform: scale(1.9) translate(-50%, -90%);
+    }
+  }
+}
+
+@media (min-width: 410px) {
+  @keyframes imgSize {
+    0% {
+      transform: scale(1) translate(-50%, 0);
+    }
+    100% {
+      transform: scale(1.9) translate(-50%, -80%);
+    }
+  }
+  .pokeball {
     &__new-pokemon {
       top: 38%;
+    }
+    &__click {
+      bottom: -20px;
     }
   }
 }
