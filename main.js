@@ -1,3 +1,5 @@
+const pokemonList = [];
+
 const getPoke = (e) => {
   e.preventDefault();
   document.querySelector(".pokeball__image").disabled = true;
@@ -163,4 +165,65 @@ const rollAgain = () => {
   });
 };
 
+// const hideBackpack = () => {
+//   console.log("zamykam");
+//   const backpackBtn = document.querySelector(".footer__btn");
+//   const backpackBtnIcon = document.querySelector(".footer__btn-image");
+//   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
+
+//   backpackBtn.addEventListener("click", showBackpack);
+//   backpackBtnAmount.style.opacity = "1";
+//   backpackBtnIcon.setAttribute("src", "assets/icon backpack.svg");
+// };
+
+// const showBackpack = () => {
+//   console.log("otwieram");
+//   const backpackBtn = document.querySelector(".footer__btn");
+//   const backpackBtnIcon = document.querySelector(".footer__btn-image");
+//   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
+
+//   backpackBtn.removeEventListener("click", showBackpack);
+//   backpackBtn.classList.toggle("footer__btn--active");
+//   backpackBtnAmount.style.opacity = "0";
+//   backpackBtnIcon.setAttribute("src", "assets/icon close.svg");
+//   backpackBtn.addEventListener("click", hideBackpack);
+// };
+let isClosed = true;
+const showBackpack = () => {
+  isClosed = !isClosed;
+  const backpackBtn = document.querySelector(".footer__btn");
+  const backpackBtnIcon = document.querySelector(".footer__btn-image");
+  const backpackBtnAmount = document.querySelector(".footer__btn-amount");
+  if (!isClosed) {
+    backpackBtn.classList.add("footer__btn--red");
+    backpackBtnIcon.setAttribute("src", "assets/icon close.svg");
+    backpackBtnAmount.style.opacity = "0";
+    const backpack = document.createElement("section");
+    backpack.className = "backpack";
+    backpack.style.animation =
+      "backpackSlideIn 1s cubic-bezier(.17,.67,.98,.61)";
+    backpack.innerHTML = `<header class="backpack__title">
+      <img class="backpack__main-img" src="assets/icon backpack.svg">
+      <span class="backpack__main-title">My Bag</span>
+    </header>
+    <main class="backpack__main">
+      <ul class="backpack__pokemon-list"></ul>
+    </main>
+    `;
+    document.body.appendChild(backpack);
+  } else {
+    backpackBtn.classList.remove("footer__btn--red");
+    backpackBtnIcon.setAttribute("src", "assets/icon backpack.svg");
+    backpackBtnAmount.style.opacity = "1";
+    const backpack = document.querySelector(".backpack");
+    backpack.style.animation =
+      "backpackSlideOut 1s cubic-bezier(.17,.67,.98,.61)";
+    setTimeout(() => {
+      backpack.remove();
+    }, 1000);
+  }
+};
+
 document.querySelector(".pokeball__form").addEventListener("submit", getPoke);
+const footerButton = document.querySelector(".footer__btn");
+footerButton.addEventListener("click", showBackpack);
