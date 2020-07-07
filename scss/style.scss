@@ -44,7 +44,7 @@
     transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    transform: translate(-50%, 30%) rotate(0deg);
+    transform: translate(-50%, 35%) rotate(0deg);
   }
 }
 
@@ -135,7 +135,7 @@ body {
     position: absolute;
     transform-origin: 0;
     z-index: 100;
-    top: 40%;
+    top: 43%;
     z-index: -1;
     left: 50%;
     transform: translate(-50%, 0);
@@ -312,8 +312,12 @@ body {
   }
   &__stats {
     list-style: none;
-    font-size: 17px;
-    color: rgb(39, 39, 39);
+    margin-top: 40px;
+    &-item {
+      font-size: 17px;
+      color: rgb(39, 39, 39);
+      margin-top: 8px;
+    }
   }
   &__buttons {
     position: absolute;
@@ -360,7 +364,7 @@ body {
       transform: scale(1) translate(-50%, 0);
     }
     100% {
-      transform: scale(1.8) translate(-50%, -70%);
+      transform: scale(1.8) translate(-50%, -80%);
     }
   }
   .logo {
@@ -415,20 +419,41 @@ body {
 }
 
 @media (min-width: 410px) {
+  @keyframes slideTop {
+    0% {
+      transform: translate(-50%, -85%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -110%) rotate(0deg);
+    }
+  }
+  @keyframes slideBot {
+    0% {
+      transform: translate(-50%, -13%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, 46%) rotate(0deg);
+    }
+  }
   @keyframes imgSize {
     0% {
       transform: scale(1) translate(-50%, 0);
     }
     100% {
-      transform: scale(1.9) translate(-50%, -80%);
+      transform: scale(1.9) translate(-50%, -85%);
     }
   }
   .pokeball {
     &__new-pokemon {
-      top: 38%;
+      top: 45%;
     }
     &__click {
       bottom: -20px;
+    }
+  }
+  .info {
+    &__btn {
+      width: 170px;
     }
   }
 }

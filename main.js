@@ -76,10 +76,10 @@ const showPokeInfo = (poke) => {
   const movesList = document.querySelector(".info__list-item--moves");
   aboutList.classList.add("info__list-item--active");
   document.querySelector(".info__desc").innerHTML = ` <ul class="info__stats">
-    <li>HP: ${poke.stats[0]["base_stat"]}</li>
-    <li>ATK: ${poke.stats[1]["base_stat"]}</li>
-    <li>DEF: ${poke.stats[2]["base_stat"]}</li>
-    <li>SPD: ${poke.stats[5]["base_stat"]}</li>
+    <li class="info__stats-item">HP: ${poke.stats[0]["base_stat"]}</li>
+    <li class="info__stats-item">ATK: ${poke.stats[1]["base_stat"]}</li>
+    <li class="info__stats-item">DEF: ${poke.stats[2]["base_stat"]}</li>
+    <li class="info__stats-item">SPD: ${poke.stats[5]["base_stat"]}</li>
   </ul>
   `;
 
@@ -141,7 +141,7 @@ const showPoke = (poke) => {
     showPokeInfo(poke);
     // document.querySelector(".pokeball__part--poke-top").remove();
     // document.querySelector(".pokeball__part--poke-bot").remove();
-  }, 4500);
+  }, 4200);
 };
 
 const rollAgain = () => {

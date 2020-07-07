@@ -91,8 +91,8 @@
             transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(-50%, 30%) rotate(0deg);
-            transform: translate(-50%, 30%) rotate(0deg);
+    -webkit-transform: translate(-50%, 35%) rotate(0deg);
+            transform: translate(-50%, 35%) rotate(0deg);
   }
 }
 
@@ -102,8 +102,8 @@
             transform: translate(-50%, -13%) rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(-50%, 30%) rotate(0deg);
-            transform: translate(-50%, 30%) rotate(0deg);
+    -webkit-transform: translate(-50%, 35%) rotate(0deg);
+            transform: translate(-50%, 35%) rotate(0deg);
   }
 }
 
@@ -246,7 +246,7 @@ body {
   -webkit-transform-origin: 0;
           transform-origin: 0;
   z-index: 100;
-  top: 40%;
+  top: 43%;
   z-index: -1;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
@@ -468,8 +468,13 @@ body {
 
 .info__stats {
   list-style: none;
+  margin-top: 40px;
+}
+
+.info__stats-item {
   font-size: 17px;
   color: #272727;
+  margin-top: 8px;
 }
 
 .info__buttons {
@@ -532,8 +537,8 @@ body {
               transform: scale(1) translate(-50%, 0);
     }
     100% {
-      -webkit-transform: scale(1.8) translate(-50%, -70%);
-              transform: scale(1.8) translate(-50%, -70%);
+      -webkit-transform: scale(1.8) translate(-50%, -80%);
+              transform: scale(1.8) translate(-50%, -80%);
     }
   }
   @keyframes imgSize {
@@ -542,8 +547,8 @@ body {
               transform: scale(1) translate(-50%, 0);
     }
     100% {
-      -webkit-transform: scale(1.8) translate(-50%, -70%);
-              transform: scale(1.8) translate(-50%, -70%);
+      -webkit-transform: scale(1.8) translate(-50%, -80%);
+              transform: scale(1.8) translate(-50%, -80%);
     }
   }
   .logo__image {
@@ -604,14 +609,54 @@ body {
 }
 
 @media (min-width: 410px) {
+  @-webkit-keyframes slideTop {
+    0% {
+      -webkit-transform: translate(-50%, -85%) rotate(0deg);
+              transform: translate(-50%, -85%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -110%) rotate(0deg);
+              transform: translate(-50%, -110%) rotate(0deg);
+    }
+  }
+  @keyframes slideTop {
+    0% {
+      -webkit-transform: translate(-50%, -85%) rotate(0deg);
+              transform: translate(-50%, -85%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -110%) rotate(0deg);
+              transform: translate(-50%, -110%) rotate(0deg);
+    }
+  }
+  @-webkit-keyframes slideBot {
+    0% {
+      -webkit-transform: translate(-50%, -13%) rotate(0deg);
+              transform: translate(-50%, -13%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, 46%) rotate(0deg);
+              transform: translate(-50%, 46%) rotate(0deg);
+    }
+  }
+  @keyframes slideBot {
+    0% {
+      -webkit-transform: translate(-50%, -13%) rotate(0deg);
+              transform: translate(-50%, -13%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, 46%) rotate(0deg);
+              transform: translate(-50%, 46%) rotate(0deg);
+    }
+  }
   @-webkit-keyframes imgSize {
     0% {
       -webkit-transform: scale(1) translate(-50%, 0);
               transform: scale(1) translate(-50%, 0);
     }
     100% {
-      -webkit-transform: scale(1.9) translate(-50%, -80%);
-              transform: scale(1.9) translate(-50%, -80%);
+      -webkit-transform: scale(1.9) translate(-50%, -85%);
+              transform: scale(1.9) translate(-50%, -85%);
     }
   }
   @keyframes imgSize {
@@ -620,15 +665,18 @@ body {
               transform: scale(1) translate(-50%, 0);
     }
     100% {
-      -webkit-transform: scale(1.9) translate(-50%, -80%);
-              transform: scale(1.9) translate(-50%, -80%);
+      -webkit-transform: scale(1.9) translate(-50%, -85%);
+              transform: scale(1.9) translate(-50%, -85%);
     }
   }
   .pokeball__new-pokemon {
-    top: 38%;
+    top: 45%;
   }
   .pokeball__click {
     bottom: -20px;
+  }
+  .info__btn {
+    width: 170px;
   }
 }
 /*# sourceMappingURL=style.css.map */
