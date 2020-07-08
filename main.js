@@ -128,11 +128,15 @@ const showPokeInfo = (poke) => {
   document
     .querySelector(".info__close-btn")
     .addEventListener("click", rollAgain);
+  const againBtn = document.querySelector(".info__btn--add");
+  console.log(againBtn);
+  againBtn.addEventListener("click", function () {
+    addToBackpack(poke);
+  });
 };
 
 const showPoke = (poke) => {
   rollPoke();
-
   const newPokemon = document.createElement("div");
   newPokemon.className = "pokeball__new-pokemon";
   newPokemon.innerHTML = `<img class="pokeball__new-pokemon-img" crossorigin="anonymous" src="${poke.sprites["front_default"]}">`;
@@ -141,8 +145,6 @@ const showPoke = (poke) => {
     newPokemon.style.zIndex = "31";
     newPokemon.style.animation = "imgSize 1.5s both";
     showPokeInfo(poke);
-    // document.querySelector(".pokeball__part--poke-top").remove();
-    // document.querySelector(".pokeball__part--poke-bot").remove();
   }, 4200);
 };
 
@@ -165,29 +167,6 @@ const rollAgain = () => {
   });
 };
 
-// const hideBackpack = () => {
-//   console.log("zamykam");
-//   const backpackBtn = document.querySelector(".footer__btn");
-//   const backpackBtnIcon = document.querySelector(".footer__btn-image");
-//   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
-
-//   backpackBtn.addEventListener("click", showBackpack);
-//   backpackBtnAmount.style.opacity = "1";
-//   backpackBtnIcon.setAttribute("src", "assets/icon backpack.svg");
-// };
-
-// const showBackpack = () => {
-//   console.log("otwieram");
-//   const backpackBtn = document.querySelector(".footer__btn");
-//   const backpackBtnIcon = document.querySelector(".footer__btn-image");
-//   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
-
-//   backpackBtn.removeEventListener("click", showBackpack);
-//   backpackBtn.classList.toggle("footer__btn--active");
-//   backpackBtnAmount.style.opacity = "0";
-//   backpackBtnIcon.setAttribute("src", "assets/icon close.svg");
-//   backpackBtn.addEventListener("click", hideBackpack);
-// };
 let isClosed = true;
 const showBackpack = () => {
   isClosed = !isClosed;
@@ -200,8 +179,7 @@ const showBackpack = () => {
     backpackBtnAmount.style.opacity = "0";
     const backpack = document.createElement("section");
     backpack.className = "backpack";
-    backpack.style.animation =
-      "backpackSlideIn 1s cubic-bezier(.17,.67,.98,.61)";
+    backpack.style.animation = "backpackSlideIn 0.8s linear";
     backpack.innerHTML = `<header class="backpack__title">
       <img class="backpack__main-img" src="assets/icon backpack.svg">
       <span class="backpack__main-title">My Bag</span>
@@ -216,12 +194,22 @@ const showBackpack = () => {
     backpackBtnIcon.setAttribute("src", "assets/icon backpack.svg");
     backpackBtnAmount.style.opacity = "1";
     const backpack = document.querySelector(".backpack");
-    backpack.style.animation =
-      "backpackSlideOut 1s cubic-bezier(.17,.67,.98,.61)";
+    backpack.style.animation = "backpackSlideOut 0.8s linear";
     setTimeout(() => {
       backpack.remove();
-    }, 1000);
+    }, 800);
   }
+};
+
+const addToBackpack = (poke) => {
+  pokemonList.push({
+    name: poke.name,
+    img: poke.sprites["front_default"],
+    category: poke.types[0].type.name,
+  });
+  document.querySelector(".footer__btn-amount-text").textContent =
+    pokemonList.length;
+  console.log(pokemonList);
 };
 
 document.querySelector(".pokeball__form").addEventListener("submit", getPoke);
