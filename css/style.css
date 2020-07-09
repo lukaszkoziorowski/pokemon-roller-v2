@@ -645,7 +645,6 @@ body {
       align-self: center;
   height: 131px;
   width: 90%;
-  background-color: yellow;
   border-radius: 8px;
   margin: 30px auto 10px auto;
 }
@@ -655,6 +654,16 @@ body {
   font-weight: bold;
   color: #272727;
   font-size: 24px;
+}
+
+.backpack__poke-category {
+  border-radius: 32px;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .backpack__poke-img {

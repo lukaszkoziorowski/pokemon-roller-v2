@@ -116,12 +116,14 @@ const showPokeInfo = (poke) => {
   const colorThief = new ColorThief();
   const img = document.querySelector(".pokeball__new-pokemon-img");
   const pokeColor = colorThief.getColor(img);
+
   console.log(pokeColor);
+  poke.color = pokeColor;
   document.querySelector(".info").style.backgroundColor = `rgb(${pokeColor})`;
   document.querySelector(".info__category").style.color = `rgb(${pokeColor})`;
   document.querySelector(
     ".info__category"
-  ).style.backgroundColor = `rgb(${pokeColor.map((item) => item + 80)})`;
+  ).style.backgroundColor = `rgb(${pokeColor.map((item) => item + 90)})`;
   document
     .querySelector(".info__btn--again")
     .addEventListener("click", rollAgain);
@@ -172,7 +174,6 @@ const showBackpack = () => {
   const backpackBtn = document.querySelector(".footer__btn");
   const backpackBtnIcon = document.querySelector(".footer__btn-image");
   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
-
   isClosed = !isClosed;
   if (!isClosed) {
     backpackBtn.classList.add("footer__btn--red");
@@ -186,18 +187,35 @@ const showBackpack = () => {
       <span class="backpack__main-title">My Bag</span>
     </header>
     <main class="backpack__main">
-      <ul class="backpack__pokemon-list">
-        <li class="backpack__poke">
-          <div class="backpack__text-div">
-            <span class="backpack__poke-name">${pokemonList[0].name}</span>
-            <span class="backpack__poke-category">${pokemonList[0].category}</span>
-          </div>
-          <img class="backpack__poke-img" src="${pokemonList[0].img}">
-        </li>
-      </ul>
+      <ul class="backpack__pokemon-list"></ul>
     </main>
     `;
+
     document.body.appendChild(backpack);
+    pokemonList.forEach((poke) => {
+      const list = document.querySelector(".backpack__pokemon-list");
+      const newItem = document.createElement("li");
+      const pokeName = poke.name;
+      const pokeImg = poke.img;
+      const pokeCategory = poke.category;
+      newItem.className = "backpack__poke";
+      newItem.innerHTML = `
+       <div class="backpack__text-div">
+       <span class="backpack__poke-name">${pokeName}</span>
+         <span class="backpack__poke-category">${pokeCategory}</span>
+       </div>
+       <img class="backpack__poke-img" src="${pokeImg}">
+      `;
+      newItem.style.backgroundColor = `rgb(${poke.color})`;
+
+      list.appendChild(newItem);
+      document.querySelector(
+        ".backpack__poke-category"
+      ).style.color = `rgb(${poke.color})`;
+      document.querySelector(
+        ".backpack__poke-category"
+      ).style.backgroundColor = `rgb(${poke.color.map((item) => item + 90)})`;
+    });
   } else {
     backpackBtn.classList.remove("footer__btn--red");
     backpackBtnIcon.setAttribute("src", "assets/icon backpack.svg");
@@ -215,6 +233,7 @@ const addToBackpack = (poke) => {
     name: poke.name,
     img: poke.sprites["front_default"],
     category: poke.types[0].type.name,
+    color: poke.color,
   });
   document.querySelector(".footer__btn-amount-text").textContent =
     pokemonList.length;
@@ -226,22 +245,6 @@ const addToBackpack = (poke) => {
     const backpackBtn = document.querySelector(".footer__btn");
     backpackBtn.removeEventListener("click", showBackpack);
   }
-  // document.querySelector(".info").style.animation = "modalSlideOut 1s both";
-  // document.querySelector(".pokeball__new-pokemon").remove();
-  // setTimeout(() => {
-  //   document.querySelector(".info").remove();
-  // }, 1000);
-  // const pokeImage = document.querySelector(".pokeball__image");
-  // pokeImage.style.opacity = "1";
-  // pokeImage.disabled = false;
-
-  // document.querySelector(".pokeball__image").style.animation = null;
-  // pokeImage.addEventListener("click", () => {
-  //   pokeImage.style.animation = "3s spin both";
-  //   setTimeout(() => {
-  //     createPokeParts();
-  //   }, 3000);
-  // });
   rollAgain();
 };
 
