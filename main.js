@@ -169,10 +169,11 @@ const rollAgain = () => {
 
 let isClosed = true;
 const showBackpack = () => {
-  isClosed = !isClosed;
   const backpackBtn = document.querySelector(".footer__btn");
   const backpackBtnIcon = document.querySelector(".footer__btn-image");
   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
+
+  isClosed = !isClosed;
   if (!isClosed) {
     backpackBtn.classList.add("footer__btn--red");
     backpackBtnIcon.setAttribute("src", "assets/icon close.svg");
@@ -185,7 +186,15 @@ const showBackpack = () => {
       <span class="backpack__main-title">My Bag</span>
     </header>
     <main class="backpack__main">
-      <ul class="backpack__pokemon-list"></ul>
+      <ul class="backpack__pokemon-list">
+        <li class="backpack__poke">
+          <div class="backpack__text-div">
+            <span class="backpack__poke-name">${pokemonList[0].name}</span>
+            <span class="backpack__poke-category">${pokemonList[0].category}</span>
+          </div>
+          <img class="backpack__poke-img" src="${pokemonList[0].img}">
+        </li>
+      </ul>
     </main>
     `;
     document.body.appendChild(backpack);
@@ -209,9 +218,32 @@ const addToBackpack = (poke) => {
   });
   document.querySelector(".footer__btn-amount-text").textContent =
     pokemonList.length;
-  console.log(pokemonList);
+  if (pokemonList.length >= 1) {
+    const backpackBtn = document.querySelector(".footer__btn");
+    backpackBtn.addEventListener("click", showBackpack);
+    backpackBtn.classList.add("footer__btn--active");
+  } else {
+    const backpackBtn = document.querySelector(".footer__btn");
+    backpackBtn.removeEventListener("click", showBackpack);
+  }
+  // document.querySelector(".info").style.animation = "modalSlideOut 1s both";
+  // document.querySelector(".pokeball__new-pokemon").remove();
+  // setTimeout(() => {
+  //   document.querySelector(".info").remove();
+  // }, 1000);
+  // const pokeImage = document.querySelector(".pokeball__image");
+  // pokeImage.style.opacity = "1";
+  // pokeImage.disabled = false;
+
+  // document.querySelector(".pokeball__image").style.animation = null;
+  // pokeImage.addEventListener("click", () => {
+  //   pokeImage.style.animation = "3s spin both";
+  //   setTimeout(() => {
+  //     createPokeParts();
+  //   }, 3000);
+  // });
+  rollAgain();
 };
 
 document.querySelector(".pokeball__form").addEventListener("submit", getPoke);
 const footerButton = document.querySelector(".footer__btn");
-footerButton.addEventListener("click", showBackpack);
