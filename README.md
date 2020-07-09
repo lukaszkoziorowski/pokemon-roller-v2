@@ -4,3 +4,4 @@
 - HTML
 - CSS + SCSS (using BEM methodics)
 - Vanilla JavaScript
+- ColorThief library
