@@ -339,6 +339,7 @@ body {
 }
 
 .footer__btn {
+  opacity: 0.7;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
   z-index: 20;
@@ -364,6 +365,10 @@ body {
   border-radius: 16px;
 }
 
+.footer__btn--active {
+  opacity: 1;
+}
+
 .footer__btn-image {
   height: 20px;
   width: 20px;
@@ -373,10 +378,6 @@ body {
   background-color: #ff6066;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
-}
-
-.footer__btn--active {
-  background-color: #ff6066;
 }
 
 .footer__btn-amount {
@@ -581,6 +582,7 @@ body {
 }
 
 .backpack {
+  text-align: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -609,6 +611,55 @@ body {
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
+}
+
+.backpack__pokemon-list {
+  text-align: center;
+}
+
+.backpack__text-div {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.backpack__poke {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: 131px;
+  width: 90%;
+  background-color: yellow;
+  border-radius: 8px;
+  margin: 30px auto 10px auto;
+}
+
+.backpack__poke-name {
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #272727;
+  font-size: 24px;
+}
+
+.backpack__poke-img {
+  width: 130px;
+  height: 130px;
 }
 
 @media (min-width: 359px) {
