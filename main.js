@@ -175,6 +175,7 @@ const showBackpack = () => {
   const backpackBtnIcon = document.querySelector(".footer__btn-image");
   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
   isClosed = !isClosed;
+
   if (!isClosed) {
     backpackBtn.classList.add("footer__btn--red");
     backpackBtnIcon.setAttribute("src", "assets/icon close.svg");
@@ -198,23 +199,20 @@ const showBackpack = () => {
       const pokeName = poke.name;
       const pokeImg = poke.img;
       const pokeCategory = poke.category;
+      const pokeColored = poke.color;
+
       newItem.className = "backpack__poke";
       newItem.innerHTML = `
        <div class="backpack__text-div">
-       <span class="backpack__poke-name">${pokeName}</span>
-         <span class="backpack__poke-category">${pokeCategory}</span>
+        <span class="backpack__poke-name">${pokeName}</span>
+         <span class="backpack__poke-category" style="color: rgb(${pokeColored}); background-color: rgb(${pokeColored.map(
+        (item) => item + 90
+      )})">${pokeCategory}</span>
        </div>
        <img class="backpack__poke-img" src="${pokeImg}">
       `;
-      newItem.style.backgroundColor = `rgb(${poke.color})`;
-
+      newItem.style.backgroundColor = `rgb(${pokeColored})`;
       list.appendChild(newItem);
-      document.querySelector(
-        ".backpack__poke-category"
-      ).style.color = `rgb(${poke.color})`;
-      document.querySelector(
-        ".backpack__poke-category"
-      ).style.backgroundColor = `rgb(${poke.color.map((item) => item + 90)})`;
     });
   } else {
     backpackBtn.classList.remove("footer__btn--red");
@@ -249,4 +247,3 @@ const addToBackpack = (poke) => {
 };
 
 document.querySelector(".pokeball__form").addEventListener("submit", getPoke);
-const footerButton = document.querySelector(".footer__btn");
