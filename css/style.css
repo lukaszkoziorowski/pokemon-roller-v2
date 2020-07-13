@@ -207,8 +207,8 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
   }
 }
 
@@ -218,15 +218,15 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
   }
 }
 
 @-webkit-keyframes goRight {
   0% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
   }
   100% {
     -webkit-transform: translateX(0);
@@ -236,8 +236,8 @@
 
 @keyframes goRight {
   0% {
-    -webkit-transform: translateX(-20%);
-            transform: translateX(-20%);
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
   }
   100% {
     -webkit-transform: translateX(0);
@@ -248,36 +248,52 @@
 @-webkit-keyframes rollOut {
   0% {
     width: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   100% {
     width: 100px;
+    -webkit-transform: translateX(90%);
+            transform: translateX(90%);
   }
 }
 
 @keyframes rollOut {
   0% {
     width: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   100% {
     width: 100px;
+    -webkit-transform: translateX(90%);
+            transform: translateX(90%);
   }
 }
 
 @-webkit-keyframes rollIn {
   0% {
     width: 100px;
+    -webkit-transform: translateX(90%);
+            transform: translateX(90%);
   }
   100% {
     width: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
 @keyframes rollIn {
   0% {
     width: 100px;
+    -webkit-transform: translateX(90%);
+            transform: translateX(90%);
   }
   100% {
     width: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 

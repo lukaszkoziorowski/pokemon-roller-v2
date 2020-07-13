@@ -98,13 +98,13 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-20%);
+    transform: translateX(-25%);
   }
 }
 
 @keyframes goRight {
   0% {
-    transform: translateX(-20%);
+    transform: translateX(-25%);
   }
   100% {
     transform: translateX(0);
@@ -113,18 +113,26 @@
 @keyframes rollOut {
   0% {
     width: 0;
+    // right: 0;
+    transform: translateX(0);
   }
   100% {
     width: 100px;
+    // right: 100px;
+    transform: translateX(90%);
   }
 }
 
 @keyframes rollIn {
   0% {
     width: 100px;
+    // right: 100px;
+    transform: translateX(90%);
   }
   100% {
     width: 0;
+    // right: 0;
+    transform: translateX(0);
   }
 }
 
