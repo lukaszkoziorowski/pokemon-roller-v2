@@ -93,6 +93,41 @@
   }
 }
 
+@keyframes goLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes goRight {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rollOut {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -429,6 +464,7 @@ body {
     justify-content: center;
   }
   &__poke {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-self: center;
@@ -436,6 +472,24 @@ body {
     width: 90%;
     border-radius: 8px;
     margin: 30px auto 10px auto;
+    transition: transform 0.3s ease-out;
+    &--red {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 131px;
+      background-color: #ff6066;
+      transition: all 0.3s ease-out;
+    }
+    &-deleter {
+      height: 30px;
+      width: 30px;
+    }
     &-name {
       text-transform: capitalize;
       font-weight: bold;
@@ -502,6 +556,14 @@ body {
     &__btn {
       height: 46px;
       width: 134px;
+    }
+  }
+  .backpack {
+    &__poke {
+      &-deleter {
+        height: 40px;
+        width: 40px;
+      }
     }
   }
 }

@@ -201,6 +201,86 @@
   }
 }
 
+@-webkit-keyframes goLeft {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+}
+
+@keyframes goLeft {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+}
+
+@-webkit-keyframes goRight {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes goRight {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes rollOut {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes rollOut {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@-webkit-keyframes rollIn {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -645,6 +725,7 @@ body {
 }
 
 .backpack__poke {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -657,6 +738,36 @@ body {
   width: 90%;
   border-radius: 8px;
   margin: 30px auto 10px auto;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+
+.backpack__poke--red {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 131px;
+  background-color: #ff6066;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.backpack__poke-deleter {
+  height: 30px;
+  width: 30px;
 }
 
 .backpack__poke-name {
@@ -733,6 +844,10 @@ body {
   .info__btn {
     height: 46px;
     width: 134px;
+  }
+  .backpack__poke-deleter {
+    height: 40px;
+    width: 40px;
   }
 }
 

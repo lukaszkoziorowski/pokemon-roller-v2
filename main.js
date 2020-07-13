@@ -168,7 +168,6 @@ const rollAgain = () => {
     }, 3000);
   });
 };
-
 let isClosed = true;
 const showBackpack = () => {
   const backpackBtn = document.querySelector(".footer__btn");
@@ -200,19 +199,109 @@ const showBackpack = () => {
       const pokeImg = poke.img;
       const pokeCategory = poke.category;
       const pokeColored = poke.color;
+      const checkColor = tinycolor(`rgb(${pokeColored})`);
 
       newItem.className = "backpack__poke";
       newItem.innerHTML = `
        <div class="backpack__text-div">
-        <span class="backpack__poke-name">${pokeName}</span>
-         <span class="backpack__poke-category" style="color: rgb(${pokeColored}); background-color: rgb(${pokeColored.map(
+        <span class="backpack__poke-name" style="color: ${
+          checkColor.isDark() ? "white" : "#272727"
+        }">${pokeName}</span>
+         <span class="backpack__poke-category" style="color: ${pokeColored}); background-color: rgb(${pokeColored.map(
         (item) => item + 90
       )})">${pokeCategory}</span>
        </div>
        <img class="backpack__poke-img" src="${pokeImg}">
       `;
       newItem.style.backgroundColor = `rgb(${pokeColored})`;
+
       list.appendChild(newItem);
+
+      //HAMMER.JS
+      const items = [...document.querySelectorAll(".backpack__poke")];
+      let isLeft = false;
+
+      items.forEach((i) => {
+        const manager = new Hammer.Manager(i);
+        const Swipe = new Hammer.Swipe();
+        manager.add(Swipe);
+        const swipeLeftHandler = (e) => {
+          isLeft = !isLeft;
+          const red = document.createElement("div");
+          red.className = "backpack__poke--red";
+          const deleter = document.createElement("img");
+          deleter.className = "backpack__poke-deleter";
+          deleter.setAttribute("src", "assets/icon remove big.svg");
+          red.appendChild(deleter);
+          deleter.addEventListener("click", function (evt, index) {
+            evt.target.parentNode.parentNode.remove();
+            pokemonList.splice(index, 1);
+            document.querySelector(".footer__btn-amount-text").textContent =
+              pokemonList.length;
+          });
+          i.style.animation = "goLeft 0.5s both";
+          red.style.animation = "rollOut 0.5s both";
+          i.appendChild(red);
+        };
+
+        const swipeRightHandler = (e) => {
+          isLeft = !isLeft;
+          i.style.animation = "goRight 0.5s both";
+          if (document.querySelector(".backpack__poke--red")) {
+            document.querySelector(".backpack__poke--red").style.animation =
+              "rollIn 0.5s both";
+            setTimeout(() => {
+              document.querySelector(".backpack__poke--red").remove();
+            }, 400);
+          }
+        };
+
+        manager.on("swipeleft", (e) => {
+          if (isLeft == false) swipeLeftHandler(e);
+        });
+        manager.on("swiperight", swipeRightHandler);
+      });
+
+      // const item = document.querySelector(".backpack__poke");
+      // const manager = new Hammer.Manager(item);
+      // const Swipe = new Hammer.Swipe();
+      // manager.add(Swipe);
+
+      // let isLeft = false;
+
+      // const swipeLeftHandler = (e) => {
+      //   isLeft = !isLeft;
+      //   let dir = e.offsetDirection;
+      //   const red = document.createElement("div");
+      //   red.className = "backpack__poke--red";
+      //   const deleter = document.createElement("img");
+      //   deleter.className = "backpack__poke-deleter";
+      //   deleter.setAttribute("src", "assets/icon remove big.svg");
+      //   red.appendChild(deleter);
+      //   deleter.addEventListener("click", function (evt) {
+      //     evt.target.parentNode.parentNode.remove();
+      //   });
+      //   red.style.animation = "rollOut 0.5s both";
+      //   e.target.style.animation = "goLeft 0.5s both";
+      //   e.target.appendChild(red);
+      // };
+
+      // const swipeRightHandler = (e) => {
+      //   isLeft = !isLeft;
+      //   e.target.style.animation = "goRight 0.5s both";
+      //   if (document.querySelector(".backpack__poke--red")) {
+      //     document.querySelector(".backpack__poke--red").style.animation =
+      //       "rollIn 0.5s both";
+      //     setTimeout(() => {
+      //       document.querySelector(".backpack__poke--red").remove();
+      //     }, 600);
+      //   }
+      // };
+
+      // manager.on("swipeleft", (e) => {
+      //   if (isLeft == false) swipeLeftHandler(e);
+      // });
+      // manager.on("swiperight", swipeRightHandler);
     });
   } else {
     backpackBtn.classList.remove("footer__btn--red");
