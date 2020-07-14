@@ -297,6 +297,36 @@
   }
 }
 
+@-webkit-keyframes infoMove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes infoMove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -808,6 +838,31 @@ body {
   height: 130px;
 }
 
+.backpack__info {
+  display: block;
+  border-radius: 8px;
+  position: absolute;
+  background-color: #f2f2f7;
+  font-weight: bold;
+  top: 40%;
+  left: 25%;
+  width: 200px;
+  -webkit-animation: infoMove 2.5s infinite linear;
+          animation: infoMove 2.5s infinite linear;
+}
+
+.backpack__info::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -6px;
+  width: 11px;
+  height: 11px;
+  background-color: #f2f2f7;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 @media (min-width: 359px) {
   @-webkit-keyframes imgSize {
     0% {
@@ -864,6 +919,10 @@ body {
   .backpack__poke-deleter {
     height: 40px;
     width: 40px;
+  }
+  .backpack__info {
+    font-size: 18px;
+    width: 220px;
   }
 }
 

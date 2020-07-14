@@ -173,6 +173,7 @@ const showBackpack = () => {
   const backpackBtn = document.querySelector(".footer__btn");
   const backpackBtnIcon = document.querySelector(".footer__btn-image");
   const backpackBtnAmount = document.querySelector(".footer__btn-amount");
+
   isClosed = !isClosed;
 
   if (!isClosed) {
@@ -190,8 +191,16 @@ const showBackpack = () => {
       <ul class="backpack__pokemon-list"></ul>
     </main>
     `;
+    let showSwipeInfo = () => {
+      const infoSwipe = document.createElement("span");
+      infoSwipe.className = "backpack__info";
+      infoSwipe.textContent = "Swipe left to remove Pokemon";
+      document.querySelector(".backpack__pokemon-list").appendChild(infoSwipe);
+      showSwipeInfo = function () {};
+    };
 
     document.body.appendChild(backpack);
+    showSwipeInfo();
     pokemonList.forEach((poke) => {
       const list = document.querySelector(".backpack__pokemon-list");
       const newItem = document.createElement("li");
@@ -217,7 +226,7 @@ const showBackpack = () => {
 
       list.appendChild(newItem);
 
-      //HAMMER.JS
+      //HAMMER.JS IMPLEMENTATION
       const items = [...document.querySelectorAll(".backpack__poke")];
       let isLeft = false;
 
@@ -227,6 +236,9 @@ const showBackpack = () => {
         manager.add(Swipe);
         const swipeLeftHandler = (e) => {
           isLeft = !isLeft;
+          if (document.querySelector(".backpack__info")) {
+            document.querySelector(".backpack__info").remove();
+          }
           const red = document.createElement("div");
           red.className = "backpack__poke--red";
           const deleter = document.createElement("img");
