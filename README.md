@@ -4,5 +4,5 @@
 - HTML
 - CSS + SCSS (using BEM methodics)
 - Vanilla JavaScript
-- ColorThief library
+- ColorThief, Hammer.js and Tinycolor libraries
 ### Demo: https://lukaszkoziorowski.github.io/pokemon-roller-v2/
