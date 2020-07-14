@@ -1,4 +1,4 @@
-# pokemon-roller-v2 (in-development)
+# pokemon-roller-v2 mobile edition (in-development)
 ## Second version of app that lets user roll a Pokemon and add it to his 'backpack'.
 ### Tech stack:
 - HTML
